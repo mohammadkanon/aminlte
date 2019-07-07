@@ -18,15 +18,29 @@ def hovertable(request):
 	return render(request, 'core/hover-table.html', context)
 
 
-def modal(request):
+def pain(request):
 	if request.method == 'POST':
+		# form = ModalForm(request.POST, request.FILES)
 		form = ModalForm(request.POST)
 		if form.is_valid():
 			form.save()
-			return redirect('home')
+			return redirect('dashboard')
+		else:
+			errors = []
+			for field in form:
+				for error in field.errors:
+	 				errors.append(field.label+" "+error)
+
+			for error in form.non_field_errors():
+	 			errors.append(field.label+" "+error)
+
+			print(errors)
+
 	else:
 		form = ModalForm()
+
 	context = {
 		'form': form
 	}
+
 	return render(request, 'core/modal.html', context)

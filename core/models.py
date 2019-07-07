@@ -24,4 +24,3 @@ class Modal(models.Model):
 	minimal = models.CharField(max_length=10, choices=State_Choices, default=None)
 	multiple = models.CharField(max_length=10, choices=State_Choices, default=None)
 	date = models.DateTimeField(null=True, blank=True)
-	

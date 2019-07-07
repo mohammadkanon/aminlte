@@ -4,11 +4,181 @@
 
 
 {% block item %}
-<p>This is modal form:
-</p>
-    <form method='post'>
-      {% csrf_token %}
-      {{ form.as_p }}
-    </form>
+  
+<!-- Main content -->
+<section class="content">
+  <div class="callout callout-info">
+    <h4>Reminder!</h4>
+    Instructions for how to use modals are available on the
+    <a href="http://getbootstrap.com/javascript/#modals">Bootstrap documentation</a>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">Modal Examples</h3>
+        </div>
+        <div class="box-body">
+          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+            Launch Default Modal
+          </button>
+
+          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default2">
+            Launch onno Modal
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="modal fade" id="modal-default">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Default Modal</h4>
+          </div>
+          <div class="modal-body">
+            <form method='POST' enctype="multipart/form-data">
+              {% csrf_token %}
+
+              <!-- general form elements -->
+              <div class="box box-primary">
+                  <div class="box-body">
+
+                    <div class="form-group">
+                      <label >Email address</label>
+                      {% render_field form.modal_email type="email" class="form-control" placeholder="Enter email" %}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      {% render_field form.modal_password type="password" class="form-control" placeholder="Password" %}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputFile">File input</label>
+                      {% render_field form.modal_image type="file" %}
+                    </div>
+
+                    <div class="form-group">
+                      <label>Minimal</label>
+                      {% render_field form.minimal class="form-control select2" style="width: 100%;" %}
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-group">
+                      <label>Multiple</label>
+                      {% render_field form.multiple class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;" %}
+                    </div>
+                    <!-- /.form-group -->
+
+                    <!-- Date -->
+                    <div class="form-group">
+                      <label>Date:</label>
+
+                      <div class="input-group date">
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                        {% render_field form.date type="text" class="form-control pull-right" id="datepicker" %}
+                      </div>
+                      <!-- /.input group -->
+                    </div>
+                    <!-- /.form group -->
+
+                  </div>
+                  <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+                
+                <button class="btn btn-primary" type="submit">Save</button>              
+              </form>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <div class="modal" id="modal-default2">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">onno Modal</h4>
+          </div>
+          <div class="modal-body">
+            <form method='POST' enctype="multipart/form-data">
+              {% csrf_token %}
+
+              <!-- general form elements -->
+              <div class="box box-primary">
+                  <div class="box-body">
+
+                    <div class="form-group">
+                      <label >Email address</label>
+                      {% render_field form.modal_email type="email" class="form-control" placeholder="Enter email" %}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      {% render_field form.modal_password type="password" class="form-control" placeholder="Password" %}
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputFile">File input</label>
+                      {% render_field form.modal_image type="file" %}
+                    </div>
+
+                    <div class="form-group">
+                      <label>Minimal</label>
+                      {% render_field form.minimal class="form-control select2" style="width: 100%;" %}
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-group">
+                      <label>Multiple</label>
+                      {% render_field form.multiple class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;" %}
+                    </div>
+                    <!-- /.form-group -->
+
+                    <!-- Date -->
+                    <div class="form-group">
+                      <label>Date:</label>
+
+                      <div class="input-group date">
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                        {% render_field form.date type="text" class="form-control pull-right" id="datepicker" %}
+                      </div>
+                      <!-- /.input group -->
+                    </div>
+                    <!-- /.form group -->
+
+                  </div>
+                  <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+                
+                <button class="btn btn-primary" type="submit">Save</button>              
+              </form>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</section>
+<!-- /.content -->
+
+
+
 
 {% endblock item %}

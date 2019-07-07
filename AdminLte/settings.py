@@ -36,6 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+
+    'crispy_forms',
+    'widget_tweaks',
+
     'django.contrib.staticfiles',
     'core.apps.CoreConfig',
 ]
@@ -128,3 +132,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'AdminLte', 'static'),
 )
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

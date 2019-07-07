@@ -1,0 +1,14 @@
+{% extends 'core/aside-bar.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block item %}
+<p>This is modal form:
+</p>
+    <form method='post'>
+      {% csrf_token %}
+      {{ form.as_p }}
+    </form>
+
+{% endblock item %}

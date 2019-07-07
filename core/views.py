@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from core.models import HoverTable
+from core.forms import ModalForm
 
 # Create your views here.
 def dashboard(request):
@@ -15,3 +16,17 @@ def hovertable(request):
 	}
 
 	return render(request, 'core/hover-table.html', context)
+
+
+def modal(request):
+	if request.method == 'POST':
+		form = ModalForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return redirect('home')
+	else:
+		form = ModalForm()
+	context = {
+		'form': form
+	}
+	return render(request, 'core/modal.html', context)
